@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modularavel\Larapix\Facades\Larapix;
 
-Route::get('/', function ()
-{
+Route::get('/', function () {
     // INSTÂNCIA PRINCIPAL DO PAYLOAD PIX
     $pixPayload = Larapix::cobrar(
         valor: 50,

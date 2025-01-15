@@ -2,9 +2,9 @@
 
 namespace Modularavel\Larapix;
 
+use Modularavel\Larapix\Commands\LarapixCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Modularavel\Larapix\Commands\LarapixCommand;
 
 class LarapixServiceProvider extends PackageServiceProvider
 {
