@@ -3,18 +3,19 @@
 use Illuminate\Support\Facades\Route;
 use Modularavel\Larapix\Facades\Larapix;
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
     // INSTÂNCIA PRINCIPAL DO PAYLOAD PIX
-    $pix = Larapix::cobrar(
+    $pixPayload = Larapix::cobrar(
         valor: 50,
         descricao: 'Furar fila',
         txid: 'casimirorocha'
     );
 
     // CÓDIGO DE PAGAMENTO PIX
-    $codigo = $pix->gerarCodigoDePagamento();
+    $codigo = $pixPayload->gerarCodigoDePagamento();
 
-    $qrCode = $pix->gerarQRCodeDePagamento($codigo);
+    $qrCode = $pixPayload->gerarQRCodeDePagamento($codigo);
 
     return view('larapix::pix-qrcode', [
         'image' => $qrCode,
