@@ -5,11 +5,9 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/modularavel/larapix/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/modularavel/larapix/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/modularavel/larapix.svg?style=flat-square)](https://packagist.org/packages/modularavel/larapix)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+## Demo
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/larapix.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/larapix)
+[<img src="https://github.com/modularavel/larapix/blob/52918aea761d45d57afb2e0f6b8227d328bc9b3d/screens/1.jpeg" width="100%" />](https://spatie.be/github-ad-click/larapix)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
