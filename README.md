@@ -28,6 +28,7 @@ This is the contents of the published config file:
 ```php
 // config for Modularavel/Larapix
 return [
+    'valor' => env('LARAPIX_VALOR', 100), // (INTEIRO) SEM PONTOS NEM VÍRGULAS
     'chave_pix' => env('LARAPIX_CHAVE_PIX', '05542201300'), // CPF, E-MAIL, CNJP, TELEFONE OU ALEATÓRIA
     'nome_do_titular' => env('LARAPIX_NOME_DO_TITULAR', 'Casimiro Rocha'), // NOME COMPLETO DO TITULAR DA CHAVE PIX
     'cidadeDoTitularDaConta_do_titular' => env('LARAPIX_CIDADE_DO_TITULAR', 'SAO LUIS'), // SEM CARACTERES ESPECIAIS!
