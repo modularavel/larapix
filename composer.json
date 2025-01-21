@@ -1,10 +1,16 @@
 {
     "name": "modularavel/larapix",
-    "description": "This is my package larapix",
+    "description": "Gerar QRCODE e chave copia e cola com valor definido para pagamentos via PIX!",
     "keywords": [
-        "Modularavel",
+        "modularavel",
         "laravel",
-        "larapix"
+        "larapix",
+        "pix",
+        "qrcode",
+        "pagamentos",
+        "pagamentos pix",
+        "pix php",
+        "pix qrcode"
     ],
     "homepage": "https://github.com/modularavel/larapix",
     "license": "MIT",
