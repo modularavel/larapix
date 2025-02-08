@@ -7,7 +7,7 @@
 
 ## Demo
 
-[<img src="https://github.com/modularavel/larapix/blob/52918aea761d45d57afb2e0f6b8227d328bc9b3d/screens/1.jpeg?v=2" width="100%" />](https://spatie.be/github-ad-click/larapix)
+[<img src="https://github.com/modularavel/larapix/blob/main/screens/10.jpeg?raw=true" width="100%" />](https://spatie.be/github-ad-click/larapix)
 
 ## Installation
 
