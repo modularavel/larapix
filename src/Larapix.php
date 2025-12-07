@@ -34,8 +34,8 @@ class Larapix implements LarapixInterface
         $this->chavePix(config('larapix.chave_pix', $chavePix))
             ->nomeDoTitularDaConta(config('larapix.nome_do_titular', $nomeDoTitularDaConta))
             ->cidadeDoTitularDaConta(config('larapix.cidadeDoTitularDaConta_do_titular', $cidadeDoTitularDaConta))
-            ->valor($valor)
-            ->descricao($descricao)
+            ->valor(config('larapix.valor', $valor))
+            ->descricao(config('larapix.descricao', $descricao))
             ->txid($txid);
     }
 

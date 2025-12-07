@@ -19,8 +19,6 @@ class LarapixServiceProvider extends PackageServiceProvider
             ->name('larapix')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_larapix_table')
-            ->hasRoute('larapix')
-            ->hasCommand(LarapixCommand::class);
+            ->hasRoute('web');
     }
 }
