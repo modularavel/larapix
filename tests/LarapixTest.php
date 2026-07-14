@@ -70,6 +70,34 @@ it('can generate a qr code image', function () {
     $qrCode = $larapix->gerarQRCodeDePagamento($code);
     expect($qrCode)->toBeString()
         ->and(strlen($qrCode))->toBeGreaterThan(0);
+
+    // Check if it's a valid PNG image
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    expect($finfo->buffer($qrCode))->toBe('image/png');
+});
+
+it('can generate and save a qr code image to file', function () {
+    $larapix = (new Larapix())
+        ->chavePix('98765432100')
+        ->nomeDoTitularDaConta('Maria Souza')
+        ->cidadeDoTitularDaConta('RIO DE JANEIRO')
+        ->valor(50.00);
+
+    $code = $larapix->gerarCodigoDePagamento();
+    $qrCodeData = $larapix->gerarQRCodeDePagamento($code);
+
+    // Create a temporary file to save the QR code
+    $tempDir = sys_get_temp_dir();
+    $filePath = $tempDir . '/larapix-test-qrcode.png';
+    file_put_contents($filePath, $qrCodeData);
+
+    // Verify the file exists and is a valid PNG
+    expect(file_exists($filePath))->toBeTrue();
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    expect($finfo->file($filePath))->toBe('image/png');
+
+    // Clean up
+    unlink($filePath);
 });
 
 it('can use the cobrar method to create a new instance', function () {
