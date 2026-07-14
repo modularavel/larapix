@@ -42,16 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Modularavel\\Larapix\\": "src/",
-            "Modularavel\\Larapix\\Database\\Factories\\": "database/factories/"
+            "Modularavel\\Larapix\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modularavel\\Larapix\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/",
-            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
-            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+            "Modularavel\\Larapix\\Tests\\": "tests/"
         }
     },
     "scripts": {
