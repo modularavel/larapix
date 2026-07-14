@@ -14,6 +14,7 @@
         "bacen",
         "copia e cola"
     ],
+    "version": "1.2.0",
     "homepage": "https://github.com/modularavel/larapix",
     "license": "MIT",
     "authors": [
