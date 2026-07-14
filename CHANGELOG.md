@@ -7,6 +7,40 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 
 ---
 
+## [1.2.0] - 2025-07-14
+
+### 🔀 Compatibilidade Expandida
+
+- **PHP**: suporte expandido para `^8.1` (anteriormente `^8.2`).
+- **Laravel**: suporte explícito para Laravel **10.x**, **11.x** e **12.x**.
+- `illuminate/contracts` e `illuminate/support` agora declarados com `^10.0|^11.0|^12.0`.
+- `orchestra/testbench` compatível com `^8.0|^9.0`.
+- `nunomaduro/collision` compatível com `^7.0|^8.0`.
+
+### 📦 Dependências
+
+- Adicionado `ext-intl` como requisito explícito (necessário para `Normalizer`).
+- Adicionado `ext-mbstring` como requisito explícito.
+- Adicionado `illuminate/support` como dependência direta (usa `Str::length`).
+- Removido `spatie/laravel-ray` do `require-dev` (ferramenta de debug pessoal).
+- `minimum-stability` alterado de `dev` para `stable`.
+
+### 🧹 Limpeza do Projeto
+
+- Removido diretório `workbench/` e referências no autoload.
+- Removido diretório `database/factories/` (placeholder vazio).
+- Removido `src/Abstraction/LarapixAbstraction.php` (arquivo vazio sem uso).
+- Removido `phpstan-baseline.neon` (vazio).
+- Removido `composer.lock` do versionamento (library package).
+- Removidas imagens não utilizadas no README (`screens/021.jpeg`, `1.jpeg`, `31.jpeg`).
+- Removido `.gitkeep` em `resources/views/` (desnecessário).
+- Removidos scripts de `workbench` do `composer.json`.
+- Atualizado `.gitignore` com categorias organizadas e proteção para `.env`.
+- Atualizado `.gitattributes` removendo referências a arquivos inexistentes.
+- Atualizado `phpstan.neon.dist` removendo baseline e path `database`.
+
+---
+
 ## [1.1.0] - 2025-07-14
 
 ### ✨ Adicionado
@@ -76,5 +110,6 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 
 ---
 
+[1.2.0]: https://github.com/modularavel/larapix/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/modularavel/larapix/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/modularavel/larapix/commits/1.0.0

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/modularavel/larapix/blob/main/screens/10.jpeg?raw=true" width="100%" alt="Larapix - Pagamentos PIX para Laravel" />
+  <img src="https://github.com/modularavel/larapix/blob/main/screens/banner.png?raw=true" width="100%" alt="Larapix - Pagamentos PIX para Laravel" />
 </p>
 
 <h1 align="center">💸 Larapix</h1>
@@ -14,7 +14,8 @@
   <a href="https://github.com/modularavel/larapix/actions?query=workflow%3A%22Fix+PHP+code+style+issues%22+branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/modularavel/larapix/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square" alt="Code Style"></a>
   <a href="https://packagist.org/packages/modularavel/larapix"><img src="https://img.shields.io/packagist/dt/modularavel/larapix.svg?style=flat-square&label=downloads" alt="Total de Downloads"></a>
   <a href="https://github.com/modularavel/larapix/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/licen%C3%A7a-MIT-green.svg?style=flat-square" alt="Licença MIT"></a>
-  <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-^8.2-8892BF.svg?style=flat-square" alt="PHP ^8.2"></a>
+  <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-^8.1+-8892BF.svg?style=flat-square" alt="PHP ^8.1"></a>
+  <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-10.x%20|%2011.x%20|%2012.x-FF2D20.svg?style=flat-square" alt="Laravel 10|11|12"></a>
 </p>
 
 ---
@@ -261,8 +262,6 @@ larapix/
 ├── routes/
 │   └── web.php                  # Rota de exemplo
 ├── src/
-│   ├── Abstraction/
-│   │   └── LarapixAbstraction.php
 │   ├── Constants/
 │   │   └── Constants.php        # IDs dos campos do payload
 │   ├── Contracts/
@@ -283,9 +282,10 @@ larapix/
 
 | Requisito | Versão |
 |-----------|--------|
-| PHP | ^8.2 |
-| Laravel | 10.x / 11.x |
+| PHP | ^8.1 |
+| Laravel | 10.x / 11.x / 12.x |
 | ext-intl | Requerido (para `Normalizer`) |
+| ext-mbstring | Requerido |
 | mpdf/qrcode | ^1.2 |
 
 ---
@@ -359,5 +359,5 @@ Se este pacote foi útil para você, considere dar uma ⭐ no [repositório](htt
 </p>
 
 <p align="center">
-  <strong>Versão atual: 1.1.0</strong>
+  <strong>Versão atual: 1.2.0</strong>
 </p>
