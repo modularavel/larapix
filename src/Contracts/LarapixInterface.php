@@ -12,26 +12,26 @@ interface LarapixInterface
     /**
      * Define a chave PIX
      *
-     * @param string $chavePix Chave PIX (CPF, CNPJ, e-mail, telefone ou aleatória)
+     * @param string|null $chavePix Chave PIX (CPF, CNPJ, e-mail, telefone ou aleatória)
      * @return static
      */
-    public function chavePix(string $chavePix): static;
+    public function chavePix(?string $chavePix): static;
 
     /**
      * Define o nome do titular da conta
      *
-     * @param string $nomeDoTitularDaConta Nome completo do titular
+     * @param string|null $nomeDoTitularDaConta Nome completo do titular
      * @return static
      */
-    public function nomeDoTitularDaConta(string $nomeDoTitularDaConta): static;
+    public function nomeDoTitularDaConta(?string $nomeDoTitularDaConta): static;
 
     /**
      * Define a cidade do titular da conta
      *
-     * @param string $cidadeDoTitularDaConta Cidade (sem acentos ou caracteres especiais)
+     * @param string|null $cidadeDoTitularDaConta Cidade (sem acentos ou caracteres especiais)
      * @return static
      */
-    public function cidadeDoTitularDaConta(string $cidadeDoTitularDaConta): static;
+    public function cidadeDoTitularDaConta(?string $cidadeDoTitularDaConta): static;
 
     /**
      * Define o valor da transação
@@ -44,18 +44,18 @@ interface LarapixInterface
     /**
      * Define a descrição do pagamento
      *
-     * @param string $descricao Descrição opcional
+     * @param string|null $descricao Descrição opcional
      * @return static
      */
-    public function descricao(string $descricao): static;
+    public function descricao(?string $descricao): static;
 
     /**
      * Define o TXID (identificador único da transação)
      *
-     * @param string $txid Identificador único
+     * @param string|null $txid Identificador único
      * @return static
      */
-    public function txid(string $txid): static;
+    public function txid(?string $txid): static;
 
     /**
      * Gera o código completo de pagamento PIX (cópia e cola)

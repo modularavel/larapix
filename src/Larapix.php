@@ -17,42 +17,42 @@ class Larapix implements LarapixInterface
     /**
      * Chave PIX do recebedor
      */
-    protected string $chavePix;
+    protected string $chavePix = '';
 
     /**
      * Nome completo do titular da conta
      */
-    protected string $nomeDoTitularDaConta;
+    protected string $nomeDoTitularDaConta = '';
 
     /**
      * Cidade do titular da conta (sem caracteres especiais)
      */
-    protected string $cidadeDoTitularDaConta;
+    protected string $cidadeDoTitularDaConta = '';
 
     /**
      * Valor da transação em reais (formato decimal com duas casas)
      */
-    protected string $valor;
+    protected string $valor = '0.00';
 
     /**
      * Descrição opcional do pagamento
      */
-    protected string $descricao;
+    protected string $descricao = '';
 
     /**
      * Identificador único da transação (TXID)
      */
-    protected string $txid;
+    protected string $txid = '';
 
     /**
      * Construtor da classe Larapix
      *
      * @param float|int $valor Valor da transação
-     * @param string $chavePix Chave PIX do recebedor
-     * @param string $nomeDoTitularDaConta Nome do titular da conta
-     * @param string $cidadeDoTitularDaConta Cidade do titular
-     * @param string $descricao Descrição do pagamento
-     * @param string $txid Identificador único da transação
+     * @param string|null $chavePix Chave PIX do recebedor
+     * @param string|null $nomeDoTitularDaConta Nome do titular da conta
+     * @param string|null $cidadeDoTitularDaConta Cidade do titular
+     * @param string|null $descricao Descrição do pagamento
+     * @param string|null $txid Identificador único da transação
      */
     public function __construct(
         $valor = 0,
@@ -65,10 +65,10 @@ class Larapix implements LarapixInterface
         // Inicializa os atributos usando configurações padrão ou valores passados
         $this->chavePix(config('larapix.chave_pix', $chavePix))
             ->nomeDoTitularDaConta(config('larapix.nome_do_titular', $nomeDoTitularDaConta))
-            ->cidadeDoTitularDaConta(config('larapix.cidadeDoTitularDaConta_do_titular', $cidadeDoTitularDaConta))
+            ->cidadeDoTitularDaConta(config('larapix.cidade_do_titular', $cidadeDoTitularDaConta))
             ->valor(config('larapix.valor', $valor))
             ->descricao(config('larapix.descricao', $descricao))
-            ->txid($txid);
+            ->txid($txid ?: config('larapix.id_transacao', ''));
     }
 
     /**
@@ -82,7 +82,7 @@ class Larapix implements LarapixInterface
      * @param string|int|null $txid TXID opcional
      * @return static
      */
-    public function cobrar(float $valor, string|int|null $chavePix = null, ?string $nomeDoTitularDaConta = null, ?string $cidadeDoTitularDaConta = null, ?string $descricao = null, string|int|null $txid = null): static
+    public static function cobrar(float $valor, string|int|null $chavePix = null, ?string $nomeDoTitularDaConta = null, ?string $cidadeDoTitularDaConta = null, ?string $descricao = null, string|int|null $txid = null): static
     {
         return new static($valor, $chavePix, $nomeDoTitularDaConta, $cidadeDoTitularDaConta, $descricao, $txid);
     }
@@ -90,12 +90,12 @@ class Larapix implements LarapixInterface
     /**
      * Define o nome do titular da conta
      *
-     * @param string $nomeDoTitularDaConta Nome completo do titular
+     * @param string|null $nomeDoTitularDaConta Nome completo do titular
      * @return $this
      */
-    public function nomeDoTitularDaConta(string $nomeDoTitularDaConta): static
+    public function nomeDoTitularDaConta(?string $nomeDoTitularDaConta): static
     {
-        $this->nomeDoTitularDaConta = $nomeDoTitularDaConta;
+        $this->nomeDoTitularDaConta = $nomeDoTitularDaConta ?? '';
 
         return $this;
     }
@@ -103,12 +103,12 @@ class Larapix implements LarapixInterface
     /**
      * Define a cidade do titular da conta
      *
-     * @param string $cidadeDoTitularDaConta Cidade (sem acentos ou caracteres especiais)
+     * @param string|null $cidadeDoTitularDaConta Cidade (sem acentos ou caracteres especiais)
      * @return $this
      */
-    public function cidadeDoTitularDaConta(string $cidadeDoTitularDaConta): static
+    public function cidadeDoTitularDaConta(?string $cidadeDoTitularDaConta): static
     {
-        $this->cidadeDoTitularDaConta = $cidadeDoTitularDaConta;
+        $this->cidadeDoTitularDaConta = $cidadeDoTitularDaConta ?? '';
 
         return $this;
     }
@@ -130,12 +130,12 @@ class Larapix implements LarapixInterface
     /**
      * Define a descrição do pagamento
      *
-     * @param string $descricao Descrição opcional
+     * @param string|null $descricao Descrição opcional
      * @return $this
      */
-    public function descricao(string $descricao): static
+    public function descricao(?string $descricao): static
     {
-        $this->descricao = $descricao;
+        $this->descricao = $descricao ?? '';
 
         return $this;
     }
@@ -143,12 +143,12 @@ class Larapix implements LarapixInterface
     /**
      * Define a chave PIX
      *
-     * @param string $chavePix Chave PIX (CPF, CNPJ, e-mail, telefone ou aleatória)
+     * @param string|null $chavePix Chave PIX (CPF, CNPJ, e-mail, telefone ou aleatória)
      * @return $this
      */
-    public function chavePix(string $chavePix): static
+    public function chavePix(?string $chavePix): static
     {
-        $this->chavePix = $chavePix;
+        $this->chavePix = $chavePix ?? '';
 
         return $this;
     }
@@ -156,12 +156,12 @@ class Larapix implements LarapixInterface
     /**
      * Define o TXID (identificador único da transação)
      *
-     * @param string $txid Identificador único
+     * @param string|null $txid Identificador único
      * @return $this
      */
-    public function txid(string $txid): static
+    public function txid(?string $txid): static
     {
-        $this->txid = $txid;
+        $this->txid = $txid ?? '';
 
         return $this;
     }
