@@ -8,6 +8,7 @@ use Modularavel\Larapix\Contracts\LarapixInterface;
 use Mpdf\QrCode\Output\Png;
 use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\QrCodeException;
+use Normalizer;
 
 /**
  * Classe principal para geração de pagamentos PIX (QR Code e código copia e cola)
@@ -101,16 +102,41 @@ class Larapix implements LarapixInterface
     }
 
     /**
-     * Define a cidade do titular da conta
+     * Define a cidade do titular da conta, sanitizando para remover acentos e caracteres especiais
      *
      * @param string|null $cidadeDoTitularDaConta Cidade (sem acentos ou caracteres especiais)
      * @return $this
      */
     public function cidadeDoTitularDaConta(?string $cidadeDoTitularDaConta): static
     {
-        $this->cidadeDoTitularDaConta = $cidadeDoTitularDaConta ?? '';
+        $this->cidadeDoTitularDaConta = $this->sanitizeCity($cidadeDoTitularDaConta);
 
         return $this;
+    }
+
+    /**
+     * Sanitiza o nome da cidade: remove acentos e mantém apenas letras, números e espaços
+     *
+     * @param string|null $city
+     * @return string
+     */
+    private function sanitizeCity(?string $city): string
+    {
+        if (null === $city) {
+            return '';
+        }
+
+        // Remove acentos
+        $city = Normalizer::normalize($city, Normalizer::FORM_D);
+        $city = preg_replace('/[\x{0300}-\x{036F}]/u', '', $city);
+
+        // Mantém apenas letras, números e espaços
+        $city = preg_replace('/[^A-Za-z0-9\s]/', '', $city);
+
+        // Remove espaços extras
+        $city = trim(preg_replace('/\s+/', ' ', $city));
+
+        return $city;
     }
 
     /**
