@@ -2,7 +2,7 @@
   <img src="https://github.com/modularavel/larapix/blob/main/screens/banner.png?raw=true" width="100%" alt="Larapix - Pagamentos PIX para Laravel" />
 </p>
 
-<h1 align="center">💸 Larapix</h1>
+<h1 align="center">modu<strong style="color: #F05340">laravel</strong><strong style="color: #72ee59ff">/larapix</strong></h1>
 
 <p align="center">
   <strong>Gere QR Codes e códigos PIX copia e cola para pagamentos instantâneos no Laravel.</strong>
